@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background-color: pink;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+    .heart{
+        width: 200px;
+        height: 200px;
+        background-color: red;
+        position: relative;
+        transform: rotate(45deg);
+        animation: bit 0.75s alternate infinite;
+        box-shadow: 0 0 50px red;
+    }
+    .heart::before{
+        content:"";
+        width: 200px;
+        height: 100px;
+        background-color: red;
+        position: absolute;
+        left: 0;
+        top: -100px;
+        border-radius: 100px 100px 0 0 ;
+        box-shadow: 0 0 50px red;
+    }
+    .heart::after{
+        content:"";
+        width: 100px;
+        height: 200px;
+        background-color: red;
+        position: absolute;
+        left: -100px;
+        top: 0px;
+        border-radius: 100px 0 0 100px;
+        box-shadow: 0 0 50px red;
+    }
+    html,body{
+        width: 100%;
+        height: 100%;
+    }
+    /*实现跳动动画*/
+    @keyframes bit{
+        0%{
+            transform: rotate(45deg) scale(0.5);
+        }
+        /*25%{
+            transform: rotate(45deg) scale(0.75);
+        }
+        50%{
+            transform: rotate(45deg) scale(1.0);
+        }
+        75%{
+            transform: rotate(45deg) scale(1.25);
+        }*/
+        100%{
+            transform: rotate(45deg) scale(1.5);
+        }
+    }
+    .text{
+        position: absolute;
+        font-size: 25px;
+        color: pink;
+    }
+</style>
+<body>
+    <div class="heart"></div>
+    <div class="text">
+        <p>From lzy</p>
+    </div>
+</body>
+</html>
